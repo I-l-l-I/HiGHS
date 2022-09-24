@@ -325,9 +325,9 @@ else()
     target_compile_definitions(libhighs PUBLIC LIBHIGHS_STATIC_DEFINE)
 endif()
 
-# on UNIX system the 'lib' prefix is automatically added
+# remove the default prefix 'lib' on UNIX system
 set_target_properties(libhighs PROPERTIES
-    OUTPUT_NAME "highs"
+    PREFIX ""
     MACOSX_RPATH "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
 
 if (OSI_FOUND)
@@ -604,9 +604,9 @@ if (ZLIB_FOUND)
     set(CONF_DEPENDENCIES "include(CMakeFindDependencyMacro)\nfind_dependency(ZLIB)")
 endif()
 
-# on UNIX system the 'lib' prefix is automatically added
+# remove the default prefix 'lib' on UNIX system
 set_target_properties(libhighs PROPERTIES
-    OUTPUT_NAME "highs"
+    PREFIX ""
     MACOSX_RPATH "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
 
 if (UNIX)
